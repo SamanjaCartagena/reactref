@@ -9,28 +9,32 @@ const App = () => {
 const getNumBox = () => {
   console.log("Hello")
   console.log(inputOne)
+  inputOne.current.style.width = "400px"
 }
 
 const getTextBox = () => {
-  console.log("World")
+  console.log(inputTwo)
 }
 
   return (
     <>
      <h2>Lerncodingrefs</h2>
      <input 
+     ref={inputOne}
      value={myNum}
      type="number"
+     style={{width:"100px"}}
      onChange={e => setMyNum(e.target.value)}
      />
       <input 
+     ref={inputTwo}
      value={myNum}
      type="text" 
      onChange={e => setMyNum(e.target.value)}
      />
      <h3>Value is : {myNum}</h3>
      <button onClick={() =>getNumBox()}>Rupees</button>
-     <button>Dollars</button>
+     <button onClick={getTextBox}>Dollars</button>
     </>
   )
 }
